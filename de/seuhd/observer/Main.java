@@ -2,15 +2,25 @@ package de.seuhd.observer;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO: Uncomment after resolving all TODOs; no other changes required here.
-        //ConcreteSubject subject = new ConcreteSubject();
-        //ConcreteObserver observer1 = new ConcreteObserver(subject);
-        //ConcreteObserver observer2 = new ConcreteObserver(subject);
+        ConcreteSubject subject = new ConcreteSubject();
+        
+        // Zwei Observer registrieren sich
+        ConcreteObserver observer1 = new ConcreteObserver(subject);
+        ConcreteObserver observer2 = new ConcreteObserver(subject);
 
-        //subject.setValue(5);
-        //observer1.detach();
-        //subject.setValue(1);
-        //observer2.detach();
-        //subject.setValue(3);
+        // Zustandsänderung
+        subject.setValue(5);
+        
+        // Einer meldet sich ab
+        observer1.detach();
+        
+        // Zustandsänderung 
+        subject.setValue(1);
+        
+        // Zweiter meldet sich ab
+        observer2.detach();
+        
+        // Zustandsänderung keine Benachrichtigung mehr
+        subject.setValue(3);
     }
 }
